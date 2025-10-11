@@ -1,4 +1,4 @@
-FROM postgres:18.0-trixie AS plv8_build
+FROM postgres:18.0-trixie AS builder
 
 ENV PLV8_BRANCH=r3.2
 ENV PLV8_VERSION=3.2.4
@@ -37,6 +37,7 @@ FROM scratch
 ENV PLV8_VERSION=3.2.4
 ENV PG_MAJOR=18
 
-COPY --from=plv8_build /usr/share/postgresql/${PG_MAJOR}/extension/ /share/
-COPY --from=plv8_build /usr/lib/postgresql/${PG_MAJOR}/lib/plv8-${PLV8_VERSION}.so /lib/
+COPY --from=builder /usr/share/postgresql/${PG_MAJOR}/extension/plv8* /share/
+COPY --from=builder /usr/lib/postgresql/${PG_MAJOR}/lib/plv8* /lib/
+COPY --from=builder /usr/lib/postgresql/${PG_MAJOR}/lib/bitcode/plv8-${PLV8_VERSION}/* /lib/bitcode/plv8-${PLV8_VERSION}/
 

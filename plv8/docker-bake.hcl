@@ -14,7 +14,7 @@ variable "DISTRO" {
   default = "trixie"
 }
 
-target "plv8" {
+target "build" {
   dockerfile = "./Dockerfile"
   tags = [
     "${REGISTRY}/plv8:${PG_VERSION}-${PLV8_VERSION}-${formatdate("YYYYMMDDHHMM", timestamp())}-${DISTRO}",

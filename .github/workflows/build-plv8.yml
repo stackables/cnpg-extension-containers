@@ -25,5 +25,5 @@ jobs:
         run: |
           cd plv8
           REGISTRY="ghcr.io/${{ github.repository_owner }}" \
-            docker buildx bake plv8 --push
+            docker buildx bake build --push
    
