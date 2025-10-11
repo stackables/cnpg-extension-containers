@@ -20,5 +20,6 @@ target "build" {
     "${REGISTRY}/wal2json:${PG_VERSION}-${WAL2JSON_VERSION}-${formatdate("YYYYMMDDHHMM", timestamp())}-${DISTRO}",
     "${REGISTRY}/wal2json:${PG_VERSION}-${WAL2JSON_VERSION}-${DISTRO}",
   ]
+  platforms = ["linux/amd64", "linux/arm64"]
 }
 

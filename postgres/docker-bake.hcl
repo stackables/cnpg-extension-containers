@@ -16,5 +16,6 @@ target "build" {
     "${REGISTRY}/postgres:${PG_VERSION}-${formatdate("YYYYMMDDHHMM", timestamp())}-${DISTRO}",
     "${REGISTRY}/postgres:${PG_VERSION}-${DISTRO}",
   ]
+  platforms = ["linux/amd64", "linux/arm64"]
 }
 

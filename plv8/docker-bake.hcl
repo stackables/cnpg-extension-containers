@@ -20,5 +20,6 @@ target "build" {
     "${REGISTRY}/plv8:${PG_VERSION}-${PLV8_VERSION}-${formatdate("YYYYMMDDHHMM", timestamp())}-${DISTRO}",
     "${REGISTRY}/plv8:${PG_VERSION}-${PLV8_VERSION}-${DISTRO}",
   ]
+  platforms = ["linux/amd64", "linux/arm64"]
 }
 
