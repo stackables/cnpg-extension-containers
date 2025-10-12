@@ -6,9 +6,8 @@ FROM ghcr.io/cloudnative-pg/postgresql:18.0-standard-trixie
 
 ENV PG_MAJOR=18
 
-COPY --from=builder-wal2json /usr/lib/postgresql/${PG_MAJOR}/lib/wal2json* /usr/lib/postgresql/${PG_MAJOR}/lib/
+COPY --from=builder-wal2json /lib/./ /usr/lib/postgresql/${PG_MAJOR}/lib/
 
-COPY --from=builder-plv8 /usr/share/postgresql/${PG_MAJOR}/extension/plv8* /usr/share/postgresql/${PG_MAJOR}/extension/
-COPY --from=builder-plv8 /usr/lib/postgresql/${PG_MAJOR}/lib/plv8* /usr/lib/postgresql/${PG_MAJOR}/lib/
-COPY --from=builder-plv8 /usr/lib/postgresql/${PG_MAJOR}/lib/bitcode/plv8* /usr/lib/postgresql/${PG_MAJOR}/lib/bitcode/
+COPY --from=builder-plv8 /share/./ /usr/share/postgresql/${PG_MAJOR}/extension/
+COPY --from=builder-plv8 /lib/./ /usr/lib/postgresql/${PG_MAJOR}/lib/
 
