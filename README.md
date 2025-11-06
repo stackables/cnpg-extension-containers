@@ -30,6 +30,7 @@ We support only postgres 18 images on trixie. Images below are experimental and 
 |------------|---------|--------------|---------|
 | plv8v      | 3.2.4   | amd64, arm64 | trixie  |
 | wal2json   | 2.6     | amd64, arm64 | trixie  |
+| pgmq       | 1.7.0   | amd64, arm64 | trixie  |
 
 ## Usage
 
@@ -49,7 +50,10 @@ spec:
       - name: wal2json
         image:
           reference: ghcr.io/stackables/wal2json:18-2.6-trixie
-  storage:
+      - name: pgmq
+        image:
+          reference: ghcr.io/stackables/pgmq:18-1.7.0-trixie
+storage:
     size: 1Gi
 ```
 
