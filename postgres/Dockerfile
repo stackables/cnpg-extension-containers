@@ -13,4 +13,4 @@ COPY --from=builder-wal2json /lib/./ /usr/lib/postgresql/${PG_MAJOR}/lib/
 COPY --from=builder-plv8 /share/./ /usr/share/postgresql/${PG_MAJOR}/extension/
 COPY --from=builder-plv8 /lib/./ /usr/lib/postgresql/${PG_MAJOR}/lib/
 
-COPY --from=builder-pgmq /lib/./ /usr/lib/postgresql/${PG_MAJOR}/lib/
+COPY --from=builder-pgmq /share/./ /usr/share/postgresql/${PG_MAJOR}/extension/
