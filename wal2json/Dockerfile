@@ -1,4 +1,4 @@
-FROM postgres:18.0-trixie AS builder
+FROM postgres:18.4-trixie AS builder
 
 ENV WAL2JSON_BRANCH=wal2json_2_6
 ENV PG_MAJOR=18

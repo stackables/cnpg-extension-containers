@@ -7,7 +7,7 @@ variable "PG_VERSION" {
 }
 
 variable "PGMQ_VERSION" {
-  default = "1.7.0"
+  default = "1.12.0"
 }
 
 variable "DISTRO" {

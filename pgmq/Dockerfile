@@ -1,7 +1,7 @@
-FROM postgres:18.0-trixie AS builder
+FROM postgres:18.4-trixie AS builder
 
-ENV PGMQ_VERSION=1.7.0
-ENV PGMQ_TAG='v1.7.0'
+ENV PGMQ_VERSION=1.12.0
+ENV PGMQ_TAG='v1.12.0'
 ENV PG_MAJOR=18
 
 RUN buildDependencies="build-essential \
