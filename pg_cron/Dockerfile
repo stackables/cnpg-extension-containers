@@ -1,0 +1,31 @@
+FROM postgres:18.4-trixie AS builder
+
+ENV PG_CRON_VERSION=1.6.7
+ENV PG_CRON_TAG='v1.6.7'
+ENV PG_MAJOR=18
+
+RUN buildDependencies="build-essential \
+    ca-certificates \
+    curl \
+    git-core \
+    postgresql-server-dev-${PG_MAJOR} \
+    pkg-config \
+    clang \
+    binutils \
+    libstdc++-12-dev \
+    cmake" \
+    && apt-get update && apt-get install -y --no-install-recommends ${buildDependencies}
+
+RUN mkdir -p /tmp/build \
+  && cd /tmp/build \
+  && git clone --branch ${PG_CRON_TAG} --single-branch --depth 1 https://github.com/citusdata/pg_cron \
+  && cd pg_cron \
+  && make \
+  && make install
+
+FROM scratch
+
+ENV PG_MAJOR=18
+
+COPY --from=builder /usr/share/postgresql/${PG_MAJOR}/extension/pg_cron* /share/
+COPY --from=builder /usr/lib/postgresql/${PG_MAJOR}/lib/pg_cron* /lib/
