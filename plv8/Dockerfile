@@ -1,4 +1,4 @@
-FROM postgres:18.0-trixie AS builder
+FROM postgres:18.4-trixie AS builder
 
 ENV PLV8_BRANCH=r3.2
 ENV PLV8_VERSION=3.2.4
