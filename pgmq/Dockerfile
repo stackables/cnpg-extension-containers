@@ -27,6 +27,6 @@ FROM scratch
 
 ENV PG_MAJOR=18
 
-COPY --from=builder /usr/share/postgresql/${PG_MAJOR}/extension/pgmq* /share/
+COPY --from=builder /usr/share/postgresql/${PG_MAJOR}/extension/pgmq* /share/extension/
 COPY --from=builder /usr/lib/postgresql/${PG_MAJOR}/lib/pgmq* /lib/
 

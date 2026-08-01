@@ -27,5 +27,5 @@ FROM scratch
 
 ENV PG_MAJOR=18
 
-COPY --from=builder /usr/share/postgresql/${PG_MAJOR}/extension/pg_cron* /share/
+COPY --from=builder /usr/share/postgresql/${PG_MAJOR}/extension/pg_cron* /share/extension/
 COPY --from=builder /usr/lib/postgresql/${PG_MAJOR}/lib/pg_cron* /lib/

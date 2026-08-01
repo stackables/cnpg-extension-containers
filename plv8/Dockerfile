@@ -37,7 +37,7 @@ FROM scratch
 ENV PLV8_VERSION=3.2.4
 ENV PG_MAJOR=18
 
-COPY --from=builder /usr/share/postgresql/${PG_MAJOR}/extension/plv8* /share/
+COPY --from=builder /usr/share/postgresql/${PG_MAJOR}/extension/plv8* /share/extension/
 COPY --from=builder /usr/lib/postgresql/${PG_MAJOR}/lib/plv8* /lib/
 COPY --from=builder /usr/lib/postgresql/${PG_MAJOR}/lib/bitcode/plv8-${PLV8_VERSION}/* /lib/bitcode/plv8-${PLV8_VERSION}/
 
