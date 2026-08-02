@@ -2,15 +2,20 @@ FROM ghcr.io/stackables/plv8:18-3.2.4-trixie AS builder-plv8
 
 FROM ghcr.io/stackables/wal2json:18-2.6-trixie AS builder-wal2json
 
-FROM ghcr.io/stackables/pgmq:18-1.7.0-trixie AS builder-pgmq
+FROM ghcr.io/stackables/pgmq:18-1.12.0-trixie AS builder-pgmq
 
-FROM ghcr.io/cloudnative-pg/postgresql:18.0-standard-trixie
+FROM ghcr.io/stackables/pg_cron:18-1.6.7-trixie AS builder-pg-cron
+
+FROM ghcr.io/cloudnative-pg/postgresql:18.4-standard-trixie
 
 ENV PG_MAJOR=18
 
 COPY --from=builder-wal2json /lib/./ /usr/lib/postgresql/${PG_MAJOR}/lib/
 
-COPY --from=builder-plv8 /share/./ /usr/share/postgresql/${PG_MAJOR}/extension/
+COPY --from=builder-plv8 /share/extension/./ /usr/share/postgresql/${PG_MAJOR}/extension/
 COPY --from=builder-plv8 /lib/./ /usr/lib/postgresql/${PG_MAJOR}/lib/
 
-COPY --from=builder-pgmq /share/./ /usr/share/postgresql/${PG_MAJOR}/extension/
+COPY --from=builder-pgmq /share/extension/./ /usr/share/postgresql/${PG_MAJOR}/extension/
+
+COPY --from=builder-pg-cron /share/extension/./ /usr/share/postgresql/${PG_MAJOR}/extension/
+COPY --from=builder-pg-cron /lib/./ /usr/lib/postgresql/${PG_MAJOR}/lib/
