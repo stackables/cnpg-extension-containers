@@ -2,8 +2,11 @@ name: Build wal2json Extension
 
 on:
   push:
+    branches:
+      - main
     paths:
       - 'wal2json/**'
+  workflow_dispatch:
 
 jobs:
   build:

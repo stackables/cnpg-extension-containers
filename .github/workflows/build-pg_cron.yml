@@ -2,8 +2,11 @@ name: Build pg_cron Extension
 
 on:
   push:
+    branches:
+      - main
     paths:
       - 'pg_cron/**'
+  workflow_dispatch:
 
 jobs:
   build:

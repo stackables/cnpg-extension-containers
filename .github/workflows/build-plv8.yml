@@ -2,6 +2,8 @@ name: Build plv8 Extension
 
 on:
   push:
+    branches:
+      - main
     paths:
       - 'plv8/**'
       - '.github/workflows/build-plv8.yml'

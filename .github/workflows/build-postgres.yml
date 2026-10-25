@@ -2,8 +2,11 @@ name: Build Full Postgrtes to compare
 
 on:
   push:
+    branches:
+      - main
     paths:
       - 'postgres/**'
+  workflow_dispatch:
 
 jobs:
   build:
