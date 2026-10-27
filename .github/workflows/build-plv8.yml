@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - 'plv8/**'
-      - '.github/workflows/build-plv8.yml'
   workflow_dispatch:
 
 env:
