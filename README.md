@@ -33,6 +33,8 @@ We support only postgres 18 images on trixie. Images below are experimental and 
 | pgmq       | 1.13.1  | amd64, arm64 | trixie  |
 | pg_cron    | 1.6.8   | amd64, arm64 | trixie  |
 
+The plv8 image also ships each older version's library name (`plv8-3.2.4.so`, …) as a relative link to the current library, so a database created with an older plv8 can run `ALTER EXTENSION plv8 UPDATE`.
+
 ## Usage
 
 ```yaml
