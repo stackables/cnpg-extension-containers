@@ -3,7 +3,7 @@ variable "REGISTRY" {
 }
 
 variable "PG_VERSION" {
-  default = "18.4"
+  default = "18.6"
 }
 
 variable "DISTRO" {

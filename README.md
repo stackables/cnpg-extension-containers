@@ -28,10 +28,10 @@ We support only postgres 18 images on trixie. Images below are experimental and 
 
 | Extension  | Version | Platforms    | Distros |
 |------------|---------|--------------|---------|
-| plv8v      | 3.2.4   | amd64, arm64 | trixie  |
+| plv8       | 3.2.5   | amd64, arm64 | trixie  |
 | wal2json   | 2.6     | amd64, arm64 | trixie  |
-| pgmq       | 1.12.0  | amd64, arm64 | trixie  |
-| pg_cron    | 1.6.7   | amd64, arm64 | trixie  |
+| pgmq       | 1.13.1  | amd64, arm64 | trixie  |
+| pg_cron    | 1.6.8   | amd64, arm64 | trixie  |
 
 ## Usage
 
@@ -47,21 +47,21 @@ spec:
     extensions:
       - name: plv8
         image:
-          reference: ghcr.io/stackables/plv8:18-3.2.4-trixie
+          reference: ghcr.io/stackables/plv8:18-3.2.5-trixie
       - name: wal2json
         image:
           reference: ghcr.io/stackables/wal2json:18-2.6-trixie
       - name: pgmq
         image:
-          reference: ghcr.io/stackables/pgmq:18-1.12.0-trixie
+          reference: ghcr.io/stackables/pgmq:18-1.13.1-trixie
       - name: pg_cron
         image:
-          reference: ghcr.io/stackables/pg_cron:18-1.6.7-trixie
+          reference: ghcr.io/stackables/pg_cron:18-1.6.8-trixie
 storage:
     size: 1Gi
 ```
 
-To test just the extensions without the ImageVolume (embeds the extensions above)
+To test just the extensions without the ImageVolume, use the bundled test image (PostgreSQL 18.6, embeds the extensions above), tagged `ghcr.io/stackables/postgres:18.6-standard-trixie`
 
 ```yaml
 apiVersion: postgresql.cnpg.io/v1
@@ -70,7 +70,7 @@ metadata:
   name: postgres-with-plv8
 spec:
   instances: 1
-  imageName: ghcr.io/stackables/postgres:18-standard-trixie
+  imageName: ghcr.io/stackables/postgres:18.6-standard-trixie
   storage:
     size: 1Gi
 ```
