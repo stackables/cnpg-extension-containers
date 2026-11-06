@@ -1,7 +1,7 @@
 FROM postgres:18.4-trixie AS builder
 
-ENV PG_CRON_VERSION=1.6.7
-ENV PG_CRON_TAG='v1.6.7'
+ENV PG_CRON_VERSION=1.6.8
+ENV PG_CRON_TAG='v1.6.8'
 ENV PG_MAJOR=18
 
 RUN buildDependencies="build-essential \

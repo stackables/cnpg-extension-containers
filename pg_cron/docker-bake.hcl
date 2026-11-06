@@ -7,7 +7,7 @@ variable "PG_VERSION" {
 }
 
 variable "PG_CRON_VERSION" {
-  default = "1.6.7"
+  default = "1.6.8"
 }
 
 variable "DISTRO" {
