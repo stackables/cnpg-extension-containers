@@ -6,7 +6,7 @@ FROM ghcr.io/stackables/pgmq:18-1.12.0-trixie AS builder-pgmq
 
 FROM ghcr.io/stackables/pg_cron:18-1.6.7-trixie AS builder-pg-cron
 
-FROM ghcr.io/cloudnative-pg/postgresql:18.4-standard-trixie
+FROM ghcr.io/cloudnative-pg/postgresql:18.6-standard-trixie
 
 ENV PG_MAJOR=18
 
