@@ -1,4 +1,4 @@
-FROM postgres:18.4-trixie AS builder
+FROM postgres:18.6-trixie AS builder
 
 ENV PG_CRON_VERSION=1.6.8
 ENV PG_CRON_TAG='v1.6.8'

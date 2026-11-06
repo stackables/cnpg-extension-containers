@@ -1,4 +1,4 @@
-FROM postgres:18.4-trixie AS builder
+FROM postgres:18.6-trixie AS builder
 
 ENV PGMQ_VERSION=1.13.1
 ENV PGMQ_TAG='v1.13.1'
