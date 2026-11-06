@@ -1,7 +1,7 @@
 FROM postgres:18.4-trixie AS builder
 
 ENV PLV8_BRANCH=r3.2
-ENV PLV8_VERSION=3.2.4
+ENV PLV8_VERSION=3.2.5
 ENV PG_MAJOR=18
 
 ARG BIGINT_GRACEFUL_VALUE='BIGINT_GRACEFUL=1'
@@ -34,7 +34,7 @@ RUN mkdir -p /tmp/build \
 
 FROM scratch
 
-ENV PLV8_VERSION=3.2.4
+ENV PLV8_VERSION=3.2.5
 ENV PG_MAJOR=18
 
 COPY --from=builder /usr/share/postgresql/${PG_MAJOR}/extension/plv8* /share/extension/

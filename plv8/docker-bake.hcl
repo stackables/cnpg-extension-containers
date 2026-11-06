@@ -7,7 +7,7 @@ variable "PG_VERSION" {
 }
 
 variable "PLV8_VERSION" {
-  default = "3.2.4"
+  default = "3.2.5"
 }
 
 variable "DISTRO" {
